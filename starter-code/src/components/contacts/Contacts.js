@@ -4,7 +4,7 @@ import "./Contacts.css"
 
 class Contactlist extends React.Component {
     state = {
-        contactArray: [...contacts1.slice(0, 5)]
+        contactArray: contacts1.splice(0, 5)
     };
     addNewContact = () => {
         let random = Math.floor(Math.random() * contacts1.length - 1);
@@ -54,10 +54,10 @@ class Contactlist extends React.Component {
                         <th>Action</th>
                     </tr>
                     {this.state.contactArray.map(elem => {
-                        return <tr>
+                        return <tr key={elem.id}>
                             <td><img src={elem.pictureUrl} /></td>
                             <td>{elem.name} </td>
-                            <td>{elem.popularity}</td>
+                            <td>{elem.popularity.toFixed(2)}</td>
                             <td><button onClick={() => this.deleteContact(elem)}> Delete </button></td>
 
                         </tr>
