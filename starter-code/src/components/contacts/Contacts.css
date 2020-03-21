@@ -1,0 +1,18 @@
+img {
+    width: 70px;
+}
+
+button {
+    background-color: darkgray;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin: 5px;
+
+}
+
+.btnClass {
+    display: flex;
+    align-items: flex-start;
+}
