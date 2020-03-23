@@ -28,11 +28,17 @@ class Contactlist extends React.Component {
 
     }
     deleteContact = prodToBeDeleted => {
-        this.setState(prevState => ({
-            contactArray: prevState.contactArray.filter(el => el.id !== prodToBeDeleted.id)
-        }));
+        let f = this.state.contactArray.filter(el => el.id !== prodToBeDeleted.id)
+
     };
 
+    search = e => {
+
+        const f = this.state.contactArray.filter(el => el.name.toLowerCase().includes(e.target.value))
+        this.setState({
+            contactArray: f
+        })
+    }
 
     render() {
 
@@ -40,6 +46,7 @@ class Contactlist extends React.Component {
         return (
             <div >
                 <div className="btnClass">
+                    <input type="text" name="search" onChange={this.search}></input>
                     <button onClick={this.addNewContact}> Add Random Contact </button>
                     <button onClick={() => this.sortPopularity(false)}> Sort by name </button>
                     <button onClick={() => this.sortPopularity(true)}> Sort by popularity </button>
